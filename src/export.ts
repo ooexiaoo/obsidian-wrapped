@@ -12,7 +12,7 @@ export async function exportCardToPng(
 
 	const dataUrl = await toPng(element, {
 		cacheBust: true,
-		pixelRatio: 2,
+		pixelRatio: 1,
 	});
 
 	const path = `${rootFolder}/${filename}.png`;

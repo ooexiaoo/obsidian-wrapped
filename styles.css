@@ -41,7 +41,31 @@
 .ow-card-wrap {
 	position: relative;
 	border-radius: 12px;
+}
+
+.ow-stage {
+	width: 1080px;
+	height: 1350px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding: 64px 84px;
+	border-radius: 28px;
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-normal);
 	overflow: hidden;
+	transform-origin: top center;
+}
+
+.ow-stage-brand {
+	font-size: 22px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	color: var(--text-muted);
 }
 
 .ow-card-toolbar {
@@ -342,10 +366,7 @@
 	color: var(--text-accent);
 }
 
-@media (max-width: 860px) {
-	.ow-card,
-	.ow-cover {
-		width: 100%;
-		padding: 28px 24px;
-	}
+.ow-stage-scale {
+	transform-origin: top left;
+	overflow: hidden;
 }

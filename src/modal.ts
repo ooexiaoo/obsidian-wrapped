@@ -35,8 +35,25 @@ export class WrappedModal extends Modal {
 				void this.saveCard(card, wrap);
 			});
 
-			const node = wrap.createDiv({ cls: "ow-card-dom" });
-			node.appendChild(card.element);
+			const scaleEl = wrap.createDiv({ cls: "ow-stage-scale" });
+			const node = scaleEl.createDiv({ cls: "ow-card-dom" });
+			const stage = node.createDiv({ cls: "ow-stage" });
+			stage.appendChild(card.element);
+			if (card.id !== "cover") {
+				stage.createDiv({ cls: "ow-stage-brand", text: "Wrapped · your vault, your story" });
+			}
+		});
+
+		this.fitStages(cardsContainer);
+	}
+
+	private fitStages(container: HTMLElement) {
+		const avail = container.clientWidth - 48;
+		const scale = Math.max(0.25, Math.min(1, avail / 1080));
+		container.querySelectorAll<HTMLElement>(".ow-stage-scale").forEach((el) => {
+			el.style.transform = `scale(${scale})`;
+			el.style.width = `${1080 * scale}px`;
+			el.style.height = `${1350 * scale}px`;
 		});
 	}
 
