@@ -26,7 +26,7 @@ A Spotify Wrapped-style look at your year in Obsidian. Scan your vault and gener
 ### Manual
 
 1. Download `main.js`, `manifest.json`, `styles.css`, and `versions.json` from the [latest release](https://github.com/ooexiaoo/obsidian-wrapped/releases/latest)
-2. Create a folder `.obsidian/plugins/obsidian-wrapped/` in your vault
+2. Create a folder `.obsidian/plugins/wrapped/` in your vault
 3. Place the downloaded files in that folder
 4. Enable "Obsidian Wrapped" in Settings → Community plugins
 
@@ -65,7 +65,7 @@ npm install
 npm run build
 ```
 
-To test locally, copy `main.js`, `manifest.json`, and `styles.css` to your vault's `.obsidian/plugins/obsidian-wrapped/` folder.
+To test locally, copy `main.js`, `manifest.json`, and `styles.css` to your vault's `.obsidian/plugins/wrapped/` folder.
 
 ## License
 
