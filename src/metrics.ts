@@ -1,4 +1,4 @@
-import { App, TFile } from "obsidian";
+import { App, CachedMetadata, TFile } from "obsidian";
 import {
 	MonthlyBucket,
 	NoteStats,
@@ -19,13 +19,13 @@ function hour(ms: number): number {
 }
 
 /** Try to extract a creation timestamp from frontmatter date fields. */
-function frontmatterDate(cache: any): number | null {
+function frontmatterDate(cache: CachedMetadata | null): number | null {
 	if (!cache?.frontmatter) return null;
-	const fm = cache.frontmatter;
+	const fm: Record<string, unknown> = cache.frontmatter;
 	const candidates = ["created", "date", "date_created", "created_at", "creation_date"];
 	for (const key of candidates) {
-		const raw = fm[key];
-		if (!raw) continue;
+		const raw: unknown = fm[key];
+		if (raw == null) continue;
 		const t = Date.parse(String(raw));
 		if (!isNaN(t)) return t;
 	}
@@ -33,7 +33,7 @@ function frontmatterDate(cache: any): number | null {
 }
 
 /** Return the best-guess creation time for a note: frontmatter → mtime → ctime. */
-function resolvedCreatedTime(file: TFile, cache: any): number {
+function resolvedCreatedTime(file: TFile, cache: CachedMetadata | null): number {
 	const fm = frontmatterDate(cache);
 	if (fm !== null) return fm;
 	if (file.stat.mtime) return file.stat.mtime;
@@ -265,7 +265,7 @@ export async function computeWrapped(app: App, settings: WrappedSettings): Promi
 			.filter((n) => isDailyNote(n.basename, settings.dailyNotesFolder, n.path))
 			.map((n) => dayKey(n.ctime))
 			.filter((k) => k >= dayKey(yearStart));
-		const set = new Set(dailyKeys);
+
 		let max = 0;
 		let run = 0;
 		let prevDay: number | null = null;

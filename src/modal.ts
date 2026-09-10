@@ -17,24 +17,26 @@ export class WrappedModal extends Modal {
 	onOpen() {
 		const { contentEl } = this;
 		contentEl.empty();
-		contentEl.createEl("div", { cls: "ow-modal-header" });
-
-		const header = contentEl.querySelector(".ow-modal-header") as HTMLElement;
-		header.createEl("span", { text: "Your Year in Notes", cls: "ow-modal-title" });
+		const header = contentEl.createDiv({ cls: "ow-modal-header" });
+		header.createSpan({ text: "Your Year in Notes", cls: "ow-modal-title" });
 		const saveAllBtn = header.createEl("button", { text: "Save all as images", cls: "mod-cta" });
-		saveAllBtn.addEventListener("click", () => this.saveAll());
+		saveAllBtn.addEventListener("click", () => {
+			void this.saveAll();
+		});
 
 		const cardsContainer = contentEl.createDiv({ cls: "ow-cards" });
 
 		this.cards.forEach((card) => {
 			const wrap = cardsContainer.createDiv({ cls: "ow-card-wrap" });
 			const toolbar = wrap.createDiv({ cls: "ow-card-toolbar" });
-			toolbar.createEl("span", { text: card.title });
+			toolbar.createSpan({ text: card.title });
 			const btn = toolbar.createEl("button", { text: "Save as PNG", cls: "ow-save-btn" });
-			btn.addEventListener("click", () => this.saveCard(card, wrap));
+			btn.addEventListener("click", () => {
+				void this.saveCard(card, wrap);
+			});
 
 			const node = wrap.createDiv({ cls: "ow-card-dom" });
-			node.innerHTML = card.html;
+			node.appendChild(card.element);
 		});
 	}
 
@@ -60,7 +62,6 @@ export class WrappedModal extends Modal {
 		const buttons = Array.from(this.contentEl.querySelectorAll<HTMLButtonElement>(".ow-save-btn"));
 		for (const b of buttons) b.disabled = true;
 
-		// Create progress bar
 		const header = this.contentEl.querySelector(".ow-modal-header") as HTMLElement;
 		const progressWrap = header.createDiv({ cls: "ow-progress-wrap" });
 		const progressBar = progressWrap.createDiv({ cls: "ow-progress-bar" });

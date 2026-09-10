@@ -12,13 +12,13 @@ export default class ObsidianWrapped extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.addRibbonIcon("calendar-heart", "Obsidian Wrapped", () => {
+		this.addRibbonIcon("calendar-heart", "Wrapped", () => {
 			void this.generateWrapped();
 		});
 
 		this.addCommand({
-			id: "generate-wrapped",
-			name: "Generate wrapped",
+			id: "generate",
+			name: "Generate",
 			callback: () => {
 				void this.generateWrapped();
 			},
@@ -48,7 +48,8 @@ export default class ObsidianWrapped extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+		const loaded = (await this.loadData()) as Partial<WrappedSettings> | null;
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded ?? {});
 	}
 
 	async saveSettings() {

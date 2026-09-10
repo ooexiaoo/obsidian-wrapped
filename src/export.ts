@@ -8,7 +8,7 @@ export async function exportCardToPng(
 	filename: string
 ): Promise<string> {
 	await document.fonts.ready;
-	await new Promise((r) => setTimeout(r, 200));
+	await new Promise((r) => window.setTimeout(r, 200));
 
 	const dataUrl = await toPng(element, {
 		cacheBust: true,

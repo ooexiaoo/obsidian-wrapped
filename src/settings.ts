@@ -1,4 +1,4 @@
-import { App, Plugin, PluginSettingTab, Setting } from "obsidian";
+import { App, Plugin, PluginSettingTab, Setting, type SettingDefinitionItem } from "obsidian";
 import { WrappedSettings } from "./types";
 
 export interface WrappedPluginLike {
@@ -53,5 +53,45 @@ export class WrappedSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 				})
 			);
+	}
+
+	getSettingDefinitions(): SettingDefinitionItem[] {
+		const s = this.plugin.settings;
+		return [
+			{
+				name: "Wrapped year",
+				desc: "Which year to report on.",
+				control: {
+					type: "text",
+					key: "year" as keyof WrappedSettings,
+					placeholder: String(new Date().getFullYear()),
+				},
+			},
+			{
+				name: "Save folder",
+				desc: "Where exported PNG cards are stored.",
+				control: {
+					type: "text",
+					key: "saveFolder" as keyof WrappedSettings,
+				},
+			},
+			{
+				name: "Daily notes folder",
+				desc: "Optional. If set, daily notes below this folder count as journal entries.",
+				control: {
+					type: "text",
+					key: "dailyNotesFolder" as keyof WrappedSettings,
+				},
+			},
+		];
+	}
+
+	getControlValue(key: string): unknown {
+		return (this.plugin.settings as unknown as Record<string, unknown>)[key];
+	}
+
+	setControlValue(key: string, value: unknown): void {
+		(this.plugin.settings as unknown as Record<string, unknown>)[key] = value;
+		void this.plugin.saveSettings();
 	}
 }

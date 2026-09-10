@@ -90,7 +90,7 @@
 	border: 1px solid var(--background-modifier-border);
 	color: var(--text-normal);
 	padding: 44px 48px;
-	font-family: var(--font-interface, ui-sans-serif, Inter, system-ui, sans-serif);
+	font-family: var(--font-interface, Inter, system-ui, sans-serif);
 	line-height: 1.5;
 }
 
