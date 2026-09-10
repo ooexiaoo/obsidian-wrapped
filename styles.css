@@ -100,9 +100,7 @@
 	text-align: center;
 	min-height: 420px;
 	justify-content: space-between;
-	background: radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 50%),
-		radial-gradient(ellipse at 70% 80%, color-mix(in srgb, var(--interactive-accent) 12%, transparent), transparent 50%),
-		var(--background-primary);
+	background: var(--background-primary);
 }
 
 .ow-cover-top {
@@ -130,10 +128,7 @@
 	font-size: 44px;
 	font-weight: 800;
 	letter-spacing: -0.02em;
-	background: linear-gradient(90deg, var(--text-normal), var(--text-accent));
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
+	color: var(--text-normal);
 }
 
 .ow-subtitle {
@@ -237,7 +232,7 @@
 .ow-bar-fill {
 	height: 100%;
 	border-radius: 6px;
-	background: linear-gradient(90deg, var(--accent, var(--interactive-accent)), color-mix(in srgb, var(--accent, var(--interactive-accent)) 40%, var(--text-normal)));
+	background: var(--accent, var(--interactive-accent));
 	transition: none;
 }
 
