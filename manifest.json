@@ -3,7 +3,7 @@
   "name": "Obsidian Wrapped",
   "version": "0.1.0",
   "minAppVersion": "1.4.0",
-  "description": "A Spotify-Wrapped-style look at your year in Obsidian. Discover your writing rhythm, streaks, most influential notes — and one embarrassing stat.",
+  "description": "Generate year-in-review cards showing your writing stats, rhythm, and personality in Obsidian.",
   "author": "ooexiaoo",
   "authorUrl": "https://github.com/ooexiaoo",
   "isDesktopOnly": false
