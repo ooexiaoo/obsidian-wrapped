@@ -1,6 +1,6 @@
 {
   "id": "wrapped",
-  "name": "Obsidian Wrapped",
+  "name": "Wrapped",
   "version": "0.1.0",
   "minAppVersion": "1.4.0",
   "description": "Generate year-in-review cards showing your writing stats, rhythm, and personality in Obsidian.",
