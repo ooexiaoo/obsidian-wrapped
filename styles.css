@@ -1,0 +1,356 @@
+/* Obsidian Wrapped – card styles (follows Obsidian theme) */
+
+.ow-modal {
+	width: 95vw;
+	max-width: 1500px;
+	height: 92vh;
+}
+
+.ow-modal .modal-content {
+	overflow: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.ow-modal-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px 24px 0;
+	position: sticky;
+	top: 0;
+	background: var(--background-primary);
+	z-index: 2;
+}
+
+.ow-modal-title {
+	font-size: 18px;
+	font-weight: 800;
+	margin-right: auto;
+}
+
+.ow-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 24px;
+	align-items: center;
+}
+
+.ow-card-wrap {
+	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.ow-card-toolbar {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 4px 2px 8px;
+}
+
+.ow-card-toolbar span {
+	font-size: 13px;
+	color: var(--text-muted);
+	margin-right: auto;
+	font-weight: 600;
+}
+
+.ow-progress-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex: 1;
+	max-width: 300px;
+}
+
+.ow-progress-bar {
+	height: 6px;
+	background: var(--interactive-accent);
+	border-radius: 3px;
+	transition: width 0.3s ease;
+	flex: 1;
+}
+
+.ow-progress-label {
+	font-size: 12px;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.ow-card,
+.ow-cover {
+	width: 800px;
+	box-sizing: border-box;
+	border-radius: 20px;
+	background: linear-gradient(160deg, var(--background-primary) 0%, var(--background-secondary) 55%, var(--background-secondary) 100%);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-normal);
+	padding: 44px 48px;
+	font-family: var(--font-interface, ui-sans-serif, Inter, system-ui, sans-serif);
+	line-height: 1.5;
+}
+
+.ow-cover {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	min-height: 420px;
+	justify-content: space-between;
+	background: radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 50%),
+		radial-gradient(ellipse at 70% 80%, color-mix(in srgb, var(--interactive-accent) 12%, transparent), transparent 50%),
+		var(--background-primary);
+}
+
+.ow-cover-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	color: var(--text-muted);
+}
+
+.ow-cover-mid {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	margin: 20px 0;
+}
+
+.ow-personality-emoji {
+	font-size: 72px;
+	line-height: 1;
+}
+
+.ow-wrapped-title {
+	font-size: 44px;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	background: linear-gradient(90deg, var(--text-normal), var(--text-accent));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.ow-subtitle {
+	font-size: 18px;
+	color: var(--text-muted);
+}
+
+.ow-personality-badge {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px 26px;
+	border-radius: 999px;
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--accent, var(--interactive-accent));
+	border: 2px solid var(--accent, var(--interactive-accent));
+	background: color-mix(in srgb, var(--accent, var(--interactive-accent)) 12%, transparent);
+}
+
+.ow-cover-footer {
+	font-size: 13px;
+	color: var(--text-faint);
+}
+
+.ow-card-title {
+	font-size: 15px;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	color: var(--accent, var(--interactive-accent));
+	margin-bottom: 26px;
+}
+
+.ow-hero-grid {
+	display: flex;
+	gap: 28px;
+	flex-wrap: wrap;
+}
+
+.ow-hero {
+	flex: 1;
+	min-width: 140px;
+	text-align: center;
+	padding: 18px 8px;
+	border-radius: 16px;
+	background: color-mix(in srgb, var(--background-modifier-border) 14%, transparent);
+	border: 1px solid var(--background-modifier-border);
+}
+
+.ow-hero-num,
+.ow-rhythm-num {
+	font-size: 26px;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: var(--text-normal);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.ow-hero-label,
+.ow-rhythm-label {
+	margin-top: 6px;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+.ow-note {
+	margin-top: 22px;
+	font-size: 14px;
+	color: var(--text-muted);
+}
+
+.ow-bars {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ow-bar-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.ow-bar-label {
+	width: 42px;
+	font-size: 13px;
+	color: var(--text-muted);
+	text-align: right;
+}
+
+.ow-bar-track {
+	flex: 1;
+	height: 22px;
+	background: color-mix(in srgb, var(--background-modifier-border) 30%, transparent);
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.ow-bar-fill {
+	height: 100%;
+	border-radius: 6px;
+	background: linear-gradient(90deg, var(--accent, var(--interactive-accent)), color-mix(in srgb, var(--accent, var(--interactive-accent)) 40%, var(--text-normal)));
+	transition: none;
+}
+
+.ow-bar-count {
+	width: 52px;
+	font-size: 13px;
+	text-align: right;
+	color: var(--text-normal);
+	font-variant-numeric: tabular-nums;
+}
+
+.ow-bars-foot {
+	margin-top: 18px;
+	font-size: 14px;
+	color: var(--text-muted);
+}
+
+.ow-rhythm-grid {
+	display: flex;
+	gap: 18px;
+	flex-wrap: wrap;
+}
+
+.ow-rythm-cell {
+	flex: 1;
+	min-width: 140px;
+	text-align: center;
+	padding: 18px 12px;
+	border-radius: 16px;
+	background: color-mix(in srgb, var(--background-modifier-border) 14%, transparent);
+	border: 1px solid var(--background-modifier-border);
+}
+
+.ow-list-label {
+	margin-top: 24px;
+	margin-bottom: 12px;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text-normal);
+}
+
+.ow-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.ow-note-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 12px 16px;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--background-modifier-border) 12%, transparent);
+	border: 1px solid var(--background-modifier-border);
+}
+
+.ow-rank {
+	font-size: 18px;
+	width: 24px;
+	text-align: center;
+}
+
+.ow-note-name {
+	flex: 1;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--text-normal);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ow-note-count {
+	font-size: 13px;
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.ow-empty {
+	font-size: 14px;
+	color: var(--text-muted);
+}
+
+.ow-oops-text {
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--text-error, #e06c75);
+	max-width: 560px;
+	line-height: 1.45;
+}
+
+.ow-fact {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	padding: 10px 0;
+	font-size: 15px;
+	color: var(--text-normal);
+}
+
+.ow-fact-emoji {
+	font-size: 18px;
+}
+
+.ow-fact b {
+	color: var(--text-accent);
+}
+
+@media (max-width: 860px) {
+	.ow-card,
+	.ow-cover {
+		width: 100%;
+		padding: 28px 24px;
+	}
+}
