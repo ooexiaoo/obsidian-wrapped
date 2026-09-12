@@ -82,7 +82,7 @@ export class WrappedModal extends Modal {
 		const header = this.contentEl.querySelector(".ow-modal-header") as HTMLElement;
 		const progressWrap = header.createDiv({ cls: "ow-progress-wrap" });
 		const progressBar = progressWrap.createDiv({ cls: "ow-progress-bar" });
-		const progressLabel = progressWrap.createEl("span", { text: "0 / 0", cls: "ow-progress-label" });
+		const progressLabel = progressWrap.createSpan({ text: "0 / 0", cls: "ow-progress-label" });
 
 		const doms = Array.from(this.contentEl.querySelectorAll<HTMLElement>(".ow-card-dom"));
 		const total = doms.length;

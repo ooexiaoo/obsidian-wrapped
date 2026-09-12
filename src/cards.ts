@@ -1,4 +1,4 @@
-import { Personality, TopNote, WrappedData, WrappedSettings } from "./types";
+import { Personality, WrappedData, WrappedSettings } from "./types";
 
 function formatNumber(n: number): string {
 	return n.toLocaleString("en-US");

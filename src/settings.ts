@@ -56,14 +56,13 @@ export class WrappedSettingTab extends PluginSettingTab {
 	}
 
 	getSettingDefinitions(): SettingDefinitionItem[] {
-		const s = this.plugin.settings;
 		return [
 			{
 				name: "Wrapped year",
 				desc: "Which year to report on.",
 				control: {
 					type: "text",
-					key: "year" as keyof WrappedSettings,
+					key: "year",
 					placeholder: String(new Date().getFullYear()),
 				},
 			},
@@ -72,7 +71,7 @@ export class WrappedSettingTab extends PluginSettingTab {
 				desc: "Where exported PNG cards are stored.",
 				control: {
 					type: "text",
-					key: "saveFolder" as keyof WrappedSettings,
+					key: "saveFolder",
 				},
 			},
 			{
@@ -80,7 +79,7 @@ export class WrappedSettingTab extends PluginSettingTab {
 				desc: "Optional. If set, daily notes below this folder count as journal entries.",
 				control: {
 					type: "text",
-					key: "dailyNotesFolder" as keyof WrappedSettings,
+					key: "dailyNotesFolder",
 				},
 			},
 		];
