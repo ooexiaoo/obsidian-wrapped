@@ -1,7 +1,7 @@
 {
   "id": "wrapped",
   "name": "Wrapped",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "minAppVersion": "1.4.0",
   "description": "Generate year-in-review cards showing your writing stats, rhythm, and personality.",
   "author": "ooexiaoo",

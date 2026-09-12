@@ -58,14 +58,12 @@ export class WrappedModal extends Modal {
 	}
 
 	async saveCard(card: WrappedCard, wrap: HTMLElement) {
-		const dom = wrap.querySelector(".ow-card-dom") as HTMLElement;
-		if (!dom) return;
 		const saveBtn = wrap.querySelector(".ow-save-btn") as HTMLButtonElement;
 		const original = saveBtn.innerText;
 		saveBtn.innerText = "Exporting…";
 		saveBtn.disabled = true;
 		try {
-			await exportCardToPng(this.app, dom, this.settings.saveFolder, card.title);
+			await exportCardToPng(this.app, card.element, this.settings.saveFolder, card.title);
 			new Notice(`Saved ${card.title}.png`);
 		} catch (e) {
 			new Notice(`Export failed: ${e}`);
@@ -84,16 +82,13 @@ export class WrappedModal extends Modal {
 		const progressBar = progressWrap.createDiv({ cls: "ow-progress-bar" });
 		const progressLabel = progressWrap.createSpan({ text: "0 / 0", cls: "ow-progress-label" });
 
-		const doms = Array.from(this.contentEl.querySelectorAll<HTMLElement>(".ow-card-dom"));
-		const total = doms.length;
+		const total = this.cards.length;
 		let count = 0;
 
 		try {
-			for (const dom of doms) {
-				const card = this.cards[doms.indexOf(dom)];
-				if (!card) continue;
+			for (const card of this.cards) {
 				progressLabel.setText(`${count + 1} / ${total}`);
-				await exportCardToPng(this.app, dom, this.settings.saveFolder, card.title);
+				await exportCardToPng(this.app, card.element, this.settings.saveFolder, card.title);
 				count++;
 				const pct = Math.round((count / total) * 100);
 				progressBar.style.width = `${pct}%`;
